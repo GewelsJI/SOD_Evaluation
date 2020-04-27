@@ -16,6 +16,7 @@ def main(cfg):
         output_dir = root_dir
     gt_dir = osp.join(root_dir, 'gt')
     pred_dir = osp.join(root_dir, 'pred')
+
     if cfg.methods is None:
         method_names = os.listdir(pred_dir)
     else:
@@ -37,10 +38,10 @@ def main(cfg):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--methods', type=str, default=None)
-    parser.add_argument('--datasets', type=str, default=None)
+    parser.add_argument('--methods', type=str, default='DSS')
+    parser.add_argument('--datasets', type=str, default='ECSSD')
     parser.add_argument('--root_dir', type=str, default='./')
-    parser.add_argument('--save_dir', type=str, default=None)
+    parser.add_argument('--save_dir', type=str, default='./results')
     parser.add_argument('--cuda', type=bool, default=True)
     config = parser.parse_args()
     main(config)
